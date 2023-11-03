@@ -22,15 +22,15 @@ function calculator() {
     console.log("initialLeasing>>", initialLeasing, "initialDownPayment>>", initialDownPayment, "initialLeasingTerm>>", initialLeasingTerm)
     let initialPayment = initialLeasing / 100 * initialDownPayment
     console.log("initialPayment>>", initialPayment)
-    let monthPayment = initialLeasing - initialPayment
+    let monthPayment =  initialPayment - initialLeasing
     console.log("monthPayment>>", monthPayment)
     let result = Math.ceil((monthPayment * R) / (1 - Math.pow((1 + R), -initialLeasingTerm)))
     let sum = Math.ceil(result * initialLeasingTerm + initialPayment)
 
     console.log("monthlyPayment >>", result, "amountAgreement >>", sum)
 
-    monthlyPayment.innerHTML = String(result)
-    amountAgreement.innerHTML = String(sum)
+    monthlyPayment.innerHTML = formatNumber(String(result))
+    amountAgreement.innerHTML = formatNumber(String(sum))
 }
 
 
